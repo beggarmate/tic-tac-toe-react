@@ -25,22 +25,33 @@ const Board = ({ xIsNext, squares, onPlay }) => {
 
   return (
     <div>
-      <h2 className="status">{status}</h2>
+      <h2 className="status">
+        {`${status.slice(0, status.length - 1)}`}
+        {status[status.length - 1] === "X" ? (
+          <span className="letter-x">{status[status.length - 1]}</span>
+        ) : (
+          <span className="letter-o">{status[status.length - 1]}</span>
+        )}
+      </h2>
+      <hr />
       <div className="board">
         <div className="board-row">
           <Square
+            style={{ borderLeft: "none", borderTop: "none" }}
             onSquareClick={() => {
               handleClick(0);
             }}
             value={squares[0]}
           />
           <Square
+            style={{ borderTop: "none" }}
             onSquareClick={() => {
               handleClick(1);
             }}
             value={squares[1]}
           />
           <Square
+            style={{ borderRight: "none", borderTop: "none" }}
             onSquareClick={() => {
               handleClick(2);
             }}
@@ -49,6 +60,7 @@ const Board = ({ xIsNext, squares, onPlay }) => {
         </div>
         <div className="board-row">
           <Square
+            style={{ borderLeft: "none" }}
             onSquareClick={() => {
               handleClick(3);
             }}
@@ -61,6 +73,7 @@ const Board = ({ xIsNext, squares, onPlay }) => {
             value={squares[4]}
           />
           <Square
+            style={{ borderRight: "none" }}
             onSquareClick={() => {
               handleClick(5);
             }}
@@ -69,18 +82,21 @@ const Board = ({ xIsNext, squares, onPlay }) => {
         </div>
         <div className="board-row">
           <Square
+            style={{ borderLeft: "none", borderBottom: "none" }}
             onSquareClick={() => {
               handleClick(6);
             }}
             value={squares[6]}
           />
           <Square
+            style={{ borderBottom: "none" }}
             onSquareClick={() => {
               handleClick(7);
             }}
             value={squares[7]}
           />
           <Square
+            style={{ borderRight: "none", borderBottom: "none" }}
             onSquareClick={() => {
               handleClick(8);
             }}

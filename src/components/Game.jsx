@@ -20,9 +20,9 @@ const Game = () => {
   const moves = history.map((squares, move) => {
     let description;
     if (move > 0) {
-      description = "Перейти к шагу №" + move;
+      description = "Step №" + move;
     } else {
-      description = "Начало игры";
+      description = "Start game";
     }
     return (
       <li key={move}>
@@ -36,7 +36,8 @@ const Game = () => {
     <div>
       <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       <div className="history">
-        <h2>История</h2>
+        <h2 className="history__title">History</h2>
+        <hr className="history__hr" />
         <ol>{moves}</ol>
       </div>
     </div>
